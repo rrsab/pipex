@@ -6,3 +6,33 @@
 
 #IncludeRegexTransform: 
 
+/Users/salyce/CLionProjects/ft_pipex/libft/libft.h
+stdlib.h
+-
+stdio.h
+-
+unistd.h
+-
+stddef.h
+-
+
+/Users/salyce/CLionProjects/ft_pipex/pipex.c
+pipex.h
+/Users/salyce/CLionProjects/ft_pipex/pipex.h
+
+/Users/salyce/CLionProjects/ft_pipex/pipex.h
+unistd.h
+-
+fcntl.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+stdlib.h
+-
+libft/libft.h
+/Users/salyce/CLionProjects/ft_pipex/libft/libft.h
+stdio.h
+-
+

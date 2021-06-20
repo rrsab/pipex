@@ -9,6 +9,10 @@ int	main(int argc, char **argv, char **envp)
 	int 	input, output;
 	char	**str;
 
+	i = -1;
+	while (++i < argc)
+		printf("argv= :%s i=%i\n", argv[i], i);
+
 	str = envp;
 	i = -1;
 	while (++i < argc - 2)
@@ -18,7 +22,7 @@ int	main(int argc, char **argv, char **envp)
 			return (1);
 		}
 	i = -1;
-	while (++i < argc - 2)
+	while (++i < argc - 3)
 	{
 		pids[i] = fork();
 		if (pids[i] == -1)
@@ -29,19 +33,19 @@ int	main(int argc, char **argv, char **envp)
 		if (pids[i] == 0)		//Child process
 		{
 			j = -1;
-			while (++j < argc - 3)
+			while (++j < argc - 2)
 			{
 				if ( i != j)
-					close(pipes[j][1]);
+					close(pipes[j][0]);
 				if (i + 1 != j)
 					close(pipes[j][1]);
 			}
-			dup2(pipes[i][0], 0);
+			dup2(pipes[i][1], 0);
 			close(pipes[i][0]);
 			dup2(pipes[i + 1][1],1);
 			close(pipes[i + 1][1]);
 			printf("privet\n");
-			if (execlp("argv[i + 2]", "argv[i + 2]", NULL) == -1)
+			if (execlp(argv[i + 2], argv[i + 2], NULL) == -1)
 			{
 				ft_putstr_fd("pipex: command not found: ", 2);
 				//ft_putendl_fd(cmd, 2);
@@ -68,6 +72,7 @@ int	main(int argc, char **argv, char **envp)
 
 	output = open(argv[4], O_RDWR | O_CREAT | O_TRUNC, 777);
 	dup2(output, pipes[argc - 3][0]);
+	wait(NULL);
 	close(pipes[0][1]);
 	close(pipes[argc - 3][0]);
 
