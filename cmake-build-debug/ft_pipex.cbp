@@ -84,10 +84,10 @@
 		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_strlen.c">
 			<Option target="ft_pipex"/>
 		</Unit>
-		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex.c">
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex.h">
 			<Option target="ft_pipex"/>
 		</Unit>
-		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex.h">
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex1.c">
 			<Option target="ft_pipex"/>
 		</Unit>
 		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/CMakeLists.txt">

@@ -76,18 +76,18 @@ include CMakeFiles/ft_pipex.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ft_pipex.dir/flags.make
 
-CMakeFiles/ft_pipex.dir/pipex.c.o: CMakeFiles/ft_pipex.dir/flags.make
-CMakeFiles/ft_pipex.dir/pipex.c.o: ../pipex.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/salyce/CLionProjects/ft_pipex/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ft_pipex.dir/pipex.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_pipex.dir/pipex.c.o -c /Users/salyce/CLionProjects/ft_pipex/pipex.c
+CMakeFiles/ft_pipex.dir/pipex1.c.o: CMakeFiles/ft_pipex.dir/flags.make
+CMakeFiles/ft_pipex.dir/pipex1.c.o: ../pipex1.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/salyce/CLionProjects/ft_pipex/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ft_pipex.dir/pipex1.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_pipex.dir/pipex1.c.o -c /Users/salyce/CLionProjects/ft_pipex/pipex1.c
 
-CMakeFiles/ft_pipex.dir/pipex.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_pipex.dir/pipex.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/salyce/CLionProjects/ft_pipex/pipex.c > CMakeFiles/ft_pipex.dir/pipex.c.i
+CMakeFiles/ft_pipex.dir/pipex1.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_pipex.dir/pipex1.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/salyce/CLionProjects/ft_pipex/pipex1.c > CMakeFiles/ft_pipex.dir/pipex1.c.i
 
-CMakeFiles/ft_pipex.dir/pipex.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_pipex.dir/pipex.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/salyce/CLionProjects/ft_pipex/pipex.c -o CMakeFiles/ft_pipex.dir/pipex.c.s
+CMakeFiles/ft_pipex.dir/pipex1.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_pipex.dir/pipex1.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/salyce/CLionProjects/ft_pipex/pipex1.c -o CMakeFiles/ft_pipex.dir/pipex1.c.s
 
 CMakeFiles/ft_pipex.dir/libft/ft_putstr_fd.c.o: CMakeFiles/ft_pipex.dir/flags.make
 CMakeFiles/ft_pipex.dir/libft/ft_putstr_fd.c.o: ../libft/ft_putstr_fd.c
@@ -117,14 +117,14 @@ CMakeFiles/ft_pipex.dir/libft/ft_strlen.c.s: cmake_force
 
 # Object files for target ft_pipex
 ft_pipex_OBJECTS = \
-"CMakeFiles/ft_pipex.dir/pipex.c.o" \
+"CMakeFiles/ft_pipex.dir/pipex1.c.o" \
 "CMakeFiles/ft_pipex.dir/libft/ft_putstr_fd.c.o" \
 "CMakeFiles/ft_pipex.dir/libft/ft_strlen.c.o"
 
 # External object files for target ft_pipex
 ft_pipex_EXTERNAL_OBJECTS =
 
-ft_pipex: CMakeFiles/ft_pipex.dir/pipex.c.o
+ft_pipex: CMakeFiles/ft_pipex.dir/pipex1.c.o
 ft_pipex: CMakeFiles/ft_pipex.dir/libft/ft_putstr_fd.c.o
 ft_pipex: CMakeFiles/ft_pipex.dir/libft/ft_strlen.c.o
 ft_pipex: CMakeFiles/ft_pipex.dir/build.make

@@ -2,8 +2,8 @@
 
 int	main(int argc, char **argv, char **envp)
 {
-	int 	pids[3];
-	int 	pipes[3][2];
+	int 	pids[10];
+	int 	pipes[10][2];
 	int		i;
 	int		j;
 	int 	input, output;
@@ -40,12 +40,12 @@ int	main(int argc, char **argv, char **envp)
 				if (i + 1 != j)
 					close(pipes[j][1]);
 			}
-			dup2(pipes[i][1], 0);
+			dup2(pipes[i][0], 0);
 			close(pipes[i][0]);
 			dup2(pipes[i + 1][1],1);
 			close(pipes[i + 1][1]);
 			printf("privet\n");
-			if (execlp(argv[i + 2], argv[i + 2], NULL) == -1)
+			if (execlp(argv[i + 2], "", NULL) == -1)
 			{
 				ft_putstr_fd("pipex: command not found: ", 2);
 				//ft_putendl_fd(cmd, 2);
@@ -67,12 +67,16 @@ int	main(int argc, char **argv, char **envp)
 	input = open(argv[1], O_RDONLY, 0);
 	if (input == -1)
 		exit(0);
-	dup2(input, pipes[0][1]);
+	//while (read((input, str1, 1) > 0);
+	//dup2(input, pipes[0][1]);
+	dup2(input, 0);
+	//dup2(pipes[0][1], 1);
+	execlp("cat", "", NULL);
 	close(input);
 
 	output = open(argv[4], O_RDWR | O_CREAT | O_TRUNC, 777);
-	dup2(output, pipes[argc - 3][0]);
 	wait(NULL);
+	dup2(output, pipes[argc - 3][0]);
 	close(pipes[0][1]);
 	close(pipes[argc - 3][0]);
 

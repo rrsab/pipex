@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ft_pipex.dir/libft/ft_putstr_fd.c.o"
   "CMakeFiles/ft_pipex.dir/libft/ft_strlen.c.o"
-  "CMakeFiles/ft_pipex.dir/pipex.c.o"
+  "CMakeFiles/ft_pipex.dir/pipex1.c.o"
   "ft_pipex"
   "ft_pipex.pdb"
 )

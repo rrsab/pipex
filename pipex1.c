@@ -4,6 +4,7 @@ static void	ft_cmd1(int *pp, char **argv, char **envp)
 {
 	int		input;
 	char 	*cmd;
+	char	*cmd1;
 	char 	**tmp;
 
 	tmp = envp;
@@ -15,8 +16,9 @@ static void	ft_cmd1(int *pp, char **argv, char **envp)
 		exit(0);
 	dup2(input, 0);
 	//cmd = ft_split(argv[2], ' ');
-	cmd = "cat";
-	if (execlp("cat", "cat", NULL) == -1)
+	cmd = argv[2];
+	cmd1 = "/usr/bin ";
+	if (execlp(cmd, "", NULL) == -1)
 	{
 		ft_putstr_fd("pipex: command not found: ", 2);
 		ft_putendl_fd(cmd, 2);
@@ -28,6 +30,7 @@ static void	ft_cmd2(int *pp, char **argv, char **envp)
 {
 	int		output;
 	char 	*cmd;
+	char 	*cmd1;
 	char	**tmp;
 
 	tmp = envp;
@@ -38,8 +41,9 @@ static void	ft_cmd2(int *pp, char **argv, char **envp)
 	close(pp[0]);
 	dup2(output, 1);
 	//cmd = ft_split(argv[3], ' ');
-	cmd = "wc";
-	if (execlp("ls", "ls", NULL) == -1)
+	cmd = argv[3];
+	cmd1 = "/bin ";
+	if (execlp(cmd, "", NULL) == -1)
 	{
 		ft_putstr_fd("pipex: command not found: ", 2);
 		ft_putendl_fd(cmd, 2);

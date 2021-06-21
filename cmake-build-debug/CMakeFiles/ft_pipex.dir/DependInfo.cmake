@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/salyce/CLionProjects/ft_pipex/libft/ft_putstr_fd.c" "/Users/salyce/CLionProjects/ft_pipex/cmake-build-debug/CMakeFiles/ft_pipex.dir/libft/ft_putstr_fd.c.o"
   "/Users/salyce/CLionProjects/ft_pipex/libft/ft_strlen.c" "/Users/salyce/CLionProjects/ft_pipex/cmake-build-debug/CMakeFiles/ft_pipex.dir/libft/ft_strlen.c.o"
-  "/Users/salyce/CLionProjects/ft_pipex/pipex.c" "/Users/salyce/CLionProjects/ft_pipex/cmake-build-debug/CMakeFiles/ft_pipex.dir/pipex.c.o"
+  "/Users/salyce/CLionProjects/ft_pipex/pipex1.c" "/Users/salyce/CLionProjects/ft_pipex/cmake-build-debug/CMakeFiles/ft_pipex.dir/pipex1.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
