@@ -78,16 +78,49 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/gnl/get_next_line.c">
+			<Option target="ft_pipex"/>
+		</Unit>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/gnl/get_next_line.h">
+			<Option target="ft_pipex"/>
+		</Unit>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_memcpy.c">
+			<Option target="ft_pipex"/>
+		</Unit>
 		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_putstr_fd.c">
+			<Option target="ft_pipex"/>
+		</Unit>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_split.c">
+			<Option target="ft_pipex"/>
+		</Unit>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_strchr.c">
+			<Option target="ft_pipex"/>
+		</Unit>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_strdup.c">
+			<Option target="ft_pipex"/>
+		</Unit>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_strjoin.c">
+			<Option target="ft_pipex"/>
+		</Unit>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_strjoin3.c">
+			<Option target="ft_pipex"/>
+		</Unit>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_strlcpy.c">
 			<Option target="ft_pipex"/>
 		</Unit>
 		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_strlen.c">
 			<Option target="ft_pipex"/>
 		</Unit>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_strncmp.c">
+			<Option target="ft_pipex"/>
+		</Unit>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_substr.c">
+			<Option target="ft_pipex"/>
+		</Unit>
 		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex.h">
 			<Option target="ft_pipex"/>
 		</Unit>
-		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex1.c">
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex111.c">
 			<Option target="ft_pipex"/>
 		</Unit>
 		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/CMakeLists.txt">

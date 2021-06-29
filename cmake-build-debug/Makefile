@@ -142,6 +142,60 @@ ft_pipex/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/build
 .PHONY : ft_pipex/fast
 
+gnl/get_next_line.o: gnl/get_next_line.c.o
+
+.PHONY : gnl/get_next_line.o
+
+# target to build an object file
+gnl/get_next_line.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/gnl/get_next_line.c.o
+.PHONY : gnl/get_next_line.c.o
+
+gnl/get_next_line.i: gnl/get_next_line.c.i
+
+.PHONY : gnl/get_next_line.i
+
+# target to preprocess a source file
+gnl/get_next_line.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/gnl/get_next_line.c.i
+.PHONY : gnl/get_next_line.c.i
+
+gnl/get_next_line.s: gnl/get_next_line.c.s
+
+.PHONY : gnl/get_next_line.s
+
+# target to generate assembly for a file
+gnl/get_next_line.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/gnl/get_next_line.c.s
+.PHONY : gnl/get_next_line.c.s
+
+libft/ft_memcpy.o: libft/ft_memcpy.c.o
+
+.PHONY : libft/ft_memcpy.o
+
+# target to build an object file
+libft/ft_memcpy.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_memcpy.c.o
+.PHONY : libft/ft_memcpy.c.o
+
+libft/ft_memcpy.i: libft/ft_memcpy.c.i
+
+.PHONY : libft/ft_memcpy.i
+
+# target to preprocess a source file
+libft/ft_memcpy.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_memcpy.c.i
+.PHONY : libft/ft_memcpy.c.i
+
+libft/ft_memcpy.s: libft/ft_memcpy.c.s
+
+.PHONY : libft/ft_memcpy.s
+
+# target to generate assembly for a file
+libft/ft_memcpy.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_memcpy.c.s
+.PHONY : libft/ft_memcpy.c.s
+
 libft/ft_putstr_fd.o: libft/ft_putstr_fd.c.o
 
 .PHONY : libft/ft_putstr_fd.o
@@ -168,6 +222,168 @@ libft/ft_putstr_fd.s: libft/ft_putstr_fd.c.s
 libft/ft_putstr_fd.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_putstr_fd.c.s
 .PHONY : libft/ft_putstr_fd.c.s
+
+libft/ft_split.o: libft/ft_split.c.o
+
+.PHONY : libft/ft_split.o
+
+# target to build an object file
+libft/ft_split.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_split.c.o
+.PHONY : libft/ft_split.c.o
+
+libft/ft_split.i: libft/ft_split.c.i
+
+.PHONY : libft/ft_split.i
+
+# target to preprocess a source file
+libft/ft_split.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_split.c.i
+.PHONY : libft/ft_split.c.i
+
+libft/ft_split.s: libft/ft_split.c.s
+
+.PHONY : libft/ft_split.s
+
+# target to generate assembly for a file
+libft/ft_split.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_split.c.s
+.PHONY : libft/ft_split.c.s
+
+libft/ft_strchr.o: libft/ft_strchr.c.o
+
+.PHONY : libft/ft_strchr.o
+
+# target to build an object file
+libft/ft_strchr.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strchr.c.o
+.PHONY : libft/ft_strchr.c.o
+
+libft/ft_strchr.i: libft/ft_strchr.c.i
+
+.PHONY : libft/ft_strchr.i
+
+# target to preprocess a source file
+libft/ft_strchr.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strchr.c.i
+.PHONY : libft/ft_strchr.c.i
+
+libft/ft_strchr.s: libft/ft_strchr.c.s
+
+.PHONY : libft/ft_strchr.s
+
+# target to generate assembly for a file
+libft/ft_strchr.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strchr.c.s
+.PHONY : libft/ft_strchr.c.s
+
+libft/ft_strdup.o: libft/ft_strdup.c.o
+
+.PHONY : libft/ft_strdup.o
+
+# target to build an object file
+libft/ft_strdup.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strdup.c.o
+.PHONY : libft/ft_strdup.c.o
+
+libft/ft_strdup.i: libft/ft_strdup.c.i
+
+.PHONY : libft/ft_strdup.i
+
+# target to preprocess a source file
+libft/ft_strdup.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strdup.c.i
+.PHONY : libft/ft_strdup.c.i
+
+libft/ft_strdup.s: libft/ft_strdup.c.s
+
+.PHONY : libft/ft_strdup.s
+
+# target to generate assembly for a file
+libft/ft_strdup.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strdup.c.s
+.PHONY : libft/ft_strdup.c.s
+
+libft/ft_strjoin.o: libft/ft_strjoin.c.o
+
+.PHONY : libft/ft_strjoin.o
+
+# target to build an object file
+libft/ft_strjoin.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strjoin.c.o
+.PHONY : libft/ft_strjoin.c.o
+
+libft/ft_strjoin.i: libft/ft_strjoin.c.i
+
+.PHONY : libft/ft_strjoin.i
+
+# target to preprocess a source file
+libft/ft_strjoin.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strjoin.c.i
+.PHONY : libft/ft_strjoin.c.i
+
+libft/ft_strjoin.s: libft/ft_strjoin.c.s
+
+.PHONY : libft/ft_strjoin.s
+
+# target to generate assembly for a file
+libft/ft_strjoin.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strjoin.c.s
+.PHONY : libft/ft_strjoin.c.s
+
+libft/ft_strjoin3.o: libft/ft_strjoin3.c.o
+
+.PHONY : libft/ft_strjoin3.o
+
+# target to build an object file
+libft/ft_strjoin3.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strjoin3.c.o
+.PHONY : libft/ft_strjoin3.c.o
+
+libft/ft_strjoin3.i: libft/ft_strjoin3.c.i
+
+.PHONY : libft/ft_strjoin3.i
+
+# target to preprocess a source file
+libft/ft_strjoin3.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strjoin3.c.i
+.PHONY : libft/ft_strjoin3.c.i
+
+libft/ft_strjoin3.s: libft/ft_strjoin3.c.s
+
+.PHONY : libft/ft_strjoin3.s
+
+# target to generate assembly for a file
+libft/ft_strjoin3.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strjoin3.c.s
+.PHONY : libft/ft_strjoin3.c.s
+
+libft/ft_strlcpy.o: libft/ft_strlcpy.c.o
+
+.PHONY : libft/ft_strlcpy.o
+
+# target to build an object file
+libft/ft_strlcpy.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strlcpy.c.o
+.PHONY : libft/ft_strlcpy.c.o
+
+libft/ft_strlcpy.i: libft/ft_strlcpy.c.i
+
+.PHONY : libft/ft_strlcpy.i
+
+# target to preprocess a source file
+libft/ft_strlcpy.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strlcpy.c.i
+.PHONY : libft/ft_strlcpy.c.i
+
+libft/ft_strlcpy.s: libft/ft_strlcpy.c.s
+
+.PHONY : libft/ft_strlcpy.s
+
+# target to generate assembly for a file
+libft/ft_strlcpy.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strlcpy.c.s
+.PHONY : libft/ft_strlcpy.c.s
 
 libft/ft_strlen.o: libft/ft_strlen.c.o
 
@@ -196,32 +412,86 @@ libft/ft_strlen.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strlen.c.s
 .PHONY : libft/ft_strlen.c.s
 
-pipex1.o: pipex1.c.o
+libft/ft_strncmp.o: libft/ft_strncmp.c.o
 
-.PHONY : pipex1.o
+.PHONY : libft/ft_strncmp.o
 
 # target to build an object file
-pipex1.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex1.c.o
-.PHONY : pipex1.c.o
+libft/ft_strncmp.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strncmp.c.o
+.PHONY : libft/ft_strncmp.c.o
 
-pipex1.i: pipex1.c.i
+libft/ft_strncmp.i: libft/ft_strncmp.c.i
 
-.PHONY : pipex1.i
+.PHONY : libft/ft_strncmp.i
 
 # target to preprocess a source file
-pipex1.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex1.c.i
-.PHONY : pipex1.c.i
+libft/ft_strncmp.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strncmp.c.i
+.PHONY : libft/ft_strncmp.c.i
 
-pipex1.s: pipex1.c.s
+libft/ft_strncmp.s: libft/ft_strncmp.c.s
 
-.PHONY : pipex1.s
+.PHONY : libft/ft_strncmp.s
 
 # target to generate assembly for a file
-pipex1.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex1.c.s
-.PHONY : pipex1.c.s
+libft/ft_strncmp.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_strncmp.c.s
+.PHONY : libft/ft_strncmp.c.s
+
+libft/ft_substr.o: libft/ft_substr.c.o
+
+.PHONY : libft/ft_substr.o
+
+# target to build an object file
+libft/ft_substr.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_substr.c.o
+.PHONY : libft/ft_substr.c.o
+
+libft/ft_substr.i: libft/ft_substr.c.i
+
+.PHONY : libft/ft_substr.i
+
+# target to preprocess a source file
+libft/ft_substr.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_substr.c.i
+.PHONY : libft/ft_substr.c.i
+
+libft/ft_substr.s: libft/ft_substr.c.s
+
+.PHONY : libft/ft_substr.s
+
+# target to generate assembly for a file
+libft/ft_substr.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_substr.c.s
+.PHONY : libft/ft_substr.c.s
+
+pipex111.o: pipex111.c.o
+
+.PHONY : pipex111.o
+
+# target to build an object file
+pipex111.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex111.c.o
+.PHONY : pipex111.c.o
+
+pipex111.i: pipex111.c.i
+
+.PHONY : pipex111.i
+
+# target to preprocess a source file
+pipex111.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex111.c.i
+.PHONY : pipex111.c.i
+
+pipex111.s: pipex111.c.s
+
+.PHONY : pipex111.s
+
+# target to generate assembly for a file
+pipex111.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex111.c.s
+.PHONY : pipex111.c.s
 
 # Help Target
 help:
@@ -232,15 +502,45 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ft_pipex"
+	@echo "... gnl/get_next_line.o"
+	@echo "... gnl/get_next_line.i"
+	@echo "... gnl/get_next_line.s"
+	@echo "... libft/ft_memcpy.o"
+	@echo "... libft/ft_memcpy.i"
+	@echo "... libft/ft_memcpy.s"
 	@echo "... libft/ft_putstr_fd.o"
 	@echo "... libft/ft_putstr_fd.i"
 	@echo "... libft/ft_putstr_fd.s"
+	@echo "... libft/ft_split.o"
+	@echo "... libft/ft_split.i"
+	@echo "... libft/ft_split.s"
+	@echo "... libft/ft_strchr.o"
+	@echo "... libft/ft_strchr.i"
+	@echo "... libft/ft_strchr.s"
+	@echo "... libft/ft_strdup.o"
+	@echo "... libft/ft_strdup.i"
+	@echo "... libft/ft_strdup.s"
+	@echo "... libft/ft_strjoin.o"
+	@echo "... libft/ft_strjoin.i"
+	@echo "... libft/ft_strjoin.s"
+	@echo "... libft/ft_strjoin3.o"
+	@echo "... libft/ft_strjoin3.i"
+	@echo "... libft/ft_strjoin3.s"
+	@echo "... libft/ft_strlcpy.o"
+	@echo "... libft/ft_strlcpy.i"
+	@echo "... libft/ft_strlcpy.s"
 	@echo "... libft/ft_strlen.o"
 	@echo "... libft/ft_strlen.i"
 	@echo "... libft/ft_strlen.s"
-	@echo "... pipex1.o"
-	@echo "... pipex1.i"
-	@echo "... pipex1.s"
+	@echo "... libft/ft_strncmp.o"
+	@echo "... libft/ft_strncmp.i"
+	@echo "... libft/ft_strncmp.s"
+	@echo "... libft/ft_substr.o"
+	@echo "... libft/ft_substr.i"
+	@echo "... libft/ft_substr.s"
+	@echo "... pipex111.o"
+	@echo "... pipex111.i"
+	@echo "... pipex111.s"
 .PHONY : help
 
 
