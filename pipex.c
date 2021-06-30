@@ -1,102 +1,203 @@
 #include "pipex.h"
 
-int	main(int argc, char **argv, char **envp)
+void	do_execve(char **envp, char **argv, int i, int count)
 {
-	int 	pids[10];
-	int 	pipes[10][2];
-	int		i;
+	char *path;
+	char **dv;
+	char **cmd1;
+	char *str;
 	int		j;
-	int 	input, output;
-	char	**str;
+	j = 0;
+	path = envp[count] + 5;
+	dv = ft_split(path, ':');
+	cmd1 = ft_split(argv[2 + i], ' ');
+	while (dv[j])
+	{
+		str = ft_strjoin3(dv[j], '/', cmd1[0]);
+		execve(str, cmd1, envp);
+		j++;
+		//doesn't free when is executed
+		free(str);
+	}
+}
 
-	i = -1;
-	while (++i < argc)
-		printf("argv= :%s i=%i\n", argv[i], i);
+int find_path(char **envp, int argc)
+{
+	int	count;
 
-	str = envp;
-	i = -1;
-	while (++i < argc - 2)
-		if (pipe(pipes[i]) == -1)
+	count = 0;
+	if (argc < 5)
+	{
+		perror("Not enough arguments");
+		return (-1);
+	}
+	while (envp[count])
+	{
+		if ((ft_strncmp("PATH=", envp[count], 5)) == 0)
+			break;
+		count++;
+	}
+	return (count);
+}
+
+int exec_process(int argc, char **argv, int count, char **envp, int num_argc, t_arg *fdp)
+{
+	int pid;
+	int	i;
+	int fd;
+
+	i = 0;
+
+	//creating pipes
+
+	while (i < num_argc - 1)
+	{
+		if (pipe(fdp[i].pp) == -1)
 		{
-			ft_putstr_fd("Error witn creating pipe\n", 2);
+			perror("Error with creating pipe\n");
 			return (1);
 		}
-	i = -1;
-	while (++i < argc - 3)
+		i++;
+	}
+	i = 0;
+
+	//creating process
+	while (i < num_argc - 1)
 	{
-		pids[i] = fork();
-		if (pids[i] == -1)
+		pid = fork();
+		if (pid == -1)
 		{
-			ft_putstr_fd("Error witn creating process\n", 2);
+			perror("Error with creating process\n");
 			return (2);
 		}
-		if (pids[i] == 0)		//Child process
+		if (pid == 0)
 		{
-			j = -1;
-			while (++j < argc - 2)
+			int	fd;
+			char *buf;
+			//child process
+			//first pipe
+			if (i == 0)
 			{
-				if ( i != j)
-					close(pipes[j][0]);
-				if (i + 1 != j)
-					close(pipes[j][1]);
+				//limiter
+				if (fdp->flag == 1)
+				{
+					buf = "";
+					close(fdp[i].pp[0]);
+					while(ft_strncmp(buf, argv[2], ft_strlen(argv[2])))
+					{
+						if(get_next_line(0, &buf) && ft_strncmp(buf, argv[2],
+																ft_strlen(argv[2])))
+						{
+							write(fdp[i].pp[1], buf, ft_strlen(buf));
+							write(fdp[i].pp[1], "\n", 1);
+						}
+						free(buf);
+					}
+				}
+					//multiple pipes
+				else
+				{
+					fd = open(argv[1], O_RDONLY);
+					if (fd < 0)
+					{
+						perror(argv[1]);
+						exit(2);
+					}
+					if (dup2(fd, STDIN_FILENO) < 0)
+						perror("Couldn't read from the file");
+				}
 			}
-			dup2(pipes[i][0], 0);
-			close(pipes[i][0]);
-			dup2(pipes[i + 1][1],1);
-			close(pipes[i + 1][1]);
-			printf("privet\n");
-			if (execlp(argv[i + 2], "", NULL) == -1)
+			//next pipes
+			if (i != 0)
 			{
-				ft_putstr_fd("pipex: command not found: ", 2);
-				//ft_putendl_fd(cmd, 2);
-				exit(0);
+				close(fdp[i - 1].pp[1]);
+				if (dup2(fdp[i - 1].pp[0], STDIN_FILENO) < 0)
+					perror("Couldn't read from the pipe1");
+				close(fdp[i - 1].pp[0]);
 			}
+			if (dup2(fdp[i].pp[1], STDOUT_FILENO) < 0)
+				perror("Couldn't write to the pipe1");
+			close(fdp[i].pp[0]);
+			close(fdp[i].pp[1]);
+
+			//execute
+			if (fdp->flag == 1 && i > 0)
+			{
+				do_execve(envp, argv, i + 1, count);
+				perror("child");
+			}
+			else if (fdp->flag != 1)
+			{
+				do_execve(envp, argv, i, count);
+				perror("child");
+			}
+			return (3);
 		}
+		else
+		{
+			wait(0);
+			close((fdp[i].pp[1]));
+			if (i)
+				close(fdp[i - 1].pp[0]);
+		}
+		i++;
 	}
-
-//	i = -1;
-//	while (++i < argc)
-//		printf("argv= :%s i=%i\n", argv[i], i);
-	//printf("%s", *envp);
-	if (argc != 5)
+	//parent process
+	if (fdp->flag == 1)
+		fd = open(argv[argc - 1], O_WRONLY | O_CREAT | O_APPEND, 00774);
+	else
+		fd = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 00774);
+	if (fd < 0)
 	{
-		ft_putstr_fd("Usage : ./pipex infile cmd1 cmd2 outfile\n", 2);
-		//printf("Usage : ./pipex infile cmd1 cmd2 outfile\n");
-		return (0);
+		perror(argv[4]);
+		exit(2);
 	}
-	input = open(argv[1], O_RDONLY, 0);
-	if (input == -1)
-		exit(0);
-	//while (read((input, str1, 1) > 0);
-	//dup2(input, pipes[0][1]);
-	dup2(input, 0);
-	//dup2(pipes[0][1], 1);
-	execlp("cat", "", NULL);
-	close(input);
-
-	output = open(argv[4], O_RDWR | O_CREAT | O_TRUNC, 777);
-	wait(NULL);
-	dup2(output, pipes[argc - 3][0]);
-	close(pipes[0][1]);
-	close(pipes[argc - 3][0]);
-
-//	if (pipe(pp) == -1)
-//		return (0);
-//	pid = fork();
-//	if (pid == -1);
-//	{
-//		ft_putstr_fd("Fork failed\n", 2);
-//		return (0);
-//	}
-//	if (pid == 0)
-//	{
-//		//printf("pervaj funksia");
-//		ft_cmd1(pp, argv,envp);
-//	}
-//	else
-//	{
-//		//printf("vtoraj funksia");
-//		ft_cmd2(pp, argv, envp);
-//	}
+	if (dup2(fd, STDOUT_FILENO) < 0)
+		perror("Couldn't read from the file");
+	if (dup2(fdp[num_argc - 2].pp[0], STDIN_FILENO) < 0)
+		perror("Couldn't read from the pipe2");
+	close(fdp[num_argc - 2].pp[1]);
+	close(fdp[num_argc - 2].pp[0]);
+	do_execve(envp, argv, i, count);
+	perror("parent");
 	return (0);
 }
+
+int main(int argc, char **argv, char **envp)
+{
+	int		i;
+	int		count;
+	t_arg	*fdp;
+	int		num_argc;
+
+	num_argc = argc - 3;
+	fdp =  (t_arg *)malloc(sizeof (t_arg) * argc);
+	i = 0;
+	count = find_path(envp, argc);
+	if (count == -1)
+		return (1);
+	if (argc < 5)
+	{
+		perror("Not enough arguments");
+		exit(EXIT_FAILURE);
+	}
+	if (!ft_strncmp(argv[1], "here_doc", 8))
+	{
+		if (argc < 6)
+		{
+			perror("Not enough arguments");
+			exit(EXIT_FAILURE);
+		}
+		fdp->flag = 1;
+		num_argc = argc - 4;
+	}
+	if (exec_process(argc, argv, count, envp, num_argc, fdp))
+		return (2);
+	free(fdp);
+	//segfault ./a.out
+	//seeking in current directory
+	//initialize fds
+	//посмотри права доступа функцией access()
+
+}
+

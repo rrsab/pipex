@@ -1,6 +1,6 @@
 NAME	= pipex
 
-SRCS	= pipex111.c gnl/get_next_line.c
+SRCS	= pipex.c gnl/get_next_line.c
 
 OBJS	= $(patsubst %.c, %.o, $(SRCS))
 
@@ -15,6 +15,7 @@ CFLAGS	= -Wall -Wextra -Werror
 all:		$(NAME)
 
 $(NAME):	$(SRCS)	libft/libft.a $(HEADER)
+			@make -C libft
 			$(CC) $(CFLAGS) $(SRCS) libft/libft.a -o $(NAME)
 
 clean:

@@ -81,11 +81,17 @@ int exec_process(int argc, char **argv, int count, char **envp, int num_argc, t_
 				//limiter
 				if (fdp->flag == 1)
 				{
-					buf = NULL;
+					buf = "";
 					close(fdp[i].pp[0]);
+					//int tmp11 = ft_strncmp(buf, argv[2], ft_strlen(argv[2]));
+					//char tmp22 = tmp11 + '0';
+					//write(1, &tmp22, 1);
+					//get_next_line(0, &buf);
 					while(ft_strncmp(buf, argv[2], ft_strlen(argv[2])))
 					{
-						if(get_next_line(0, &buf) && ft_strncmp(buf, argv[2], ft_strlen(argv[2])))
+						//get_next_line(0, &buf);
+						if(get_next_line(0, &buf) && ft_strncmp(buf, argv[2],
+																ft_strlen(argv[2])))
 						{
 							write(fdp[i].pp[1], buf, ft_strlen(buf));
 							write(fdp[i].pp[1], "\n", 1);
@@ -175,6 +181,7 @@ int main(int argc, char **argv, char **envp)
 	count = find_path(envp, argc);
 	if (count == -1)
 		return (1);
+	write(1, "flag=", 5);
 	if (argc < 5)
 	{
 		perror("Not enough arguments");
@@ -188,7 +195,10 @@ int main(int argc, char **argv, char **envp)
 			exit(EXIT_FAILURE);
 		}
 		fdp->flag = 1;
+		write(1, "\nflag", 5);
+		write(1, &fdp->flag, 1);
 		num_argc = argc - 4;
+		printf("flag=%d", fdp->flag);
 	}
 	if (exec_process(argc, argv, count, envp, num_argc, fdp))
 		return (2);

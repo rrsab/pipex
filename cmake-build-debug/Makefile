@@ -466,32 +466,32 @@ libft/ft_substr.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/libft/ft_substr.c.s
 .PHONY : libft/ft_substr.c.s
 
-pipex111.o: pipex111.c.o
+pipex.o: pipex.c.o
 
-.PHONY : pipex111.o
+.PHONY : pipex.o
 
 # target to build an object file
-pipex111.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex111.c.o
-.PHONY : pipex111.c.o
+pipex.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex.c.o
+.PHONY : pipex.c.o
 
-pipex111.i: pipex111.c.i
+pipex.i: pipex.c.i
 
-.PHONY : pipex111.i
+.PHONY : pipex.i
 
 # target to preprocess a source file
-pipex111.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex111.c.i
-.PHONY : pipex111.c.i
+pipex.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex.c.i
+.PHONY : pipex.c.i
 
-pipex111.s: pipex111.c.s
+pipex.s: pipex.c.s
 
-.PHONY : pipex111.s
+.PHONY : pipex.s
 
 # target to generate assembly for a file
-pipex111.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex111.c.s
-.PHONY : pipex111.c.s
+pipex.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex.c.s
+.PHONY : pipex.c.s
 
 # Help Target
 help:
@@ -538,9 +538,9 @@ help:
 	@echo "... libft/ft_substr.o"
 	@echo "... libft/ft_substr.i"
 	@echo "... libft/ft_substr.s"
-	@echo "... pipex111.o"
-	@echo "... pipex111.i"
-	@echo "... pipex111.s"
+	@echo "... pipex.o"
+	@echo "... pipex.i"
+	@echo "... pipex.s"
 .PHONY : help
 
 

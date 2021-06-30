@@ -117,10 +117,10 @@
 		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/libft/ft_substr.c">
 			<Option target="ft_pipex"/>
 		</Unit>
-		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex.h">
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex.c">
 			<Option target="ft_pipex"/>
 		</Unit>
-		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex111.c">
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex.h">
 			<Option target="ft_pipex"/>
 		</Unit>
 		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/CMakeLists.txt">
