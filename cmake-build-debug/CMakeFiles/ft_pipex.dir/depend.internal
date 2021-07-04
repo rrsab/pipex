@@ -38,8 +38,13 @@ CMakeFiles/ft_pipex.dir/libft/ft_strncmp.c.o
 CMakeFiles/ft_pipex.dir/libft/ft_substr.c.o
  /Users/salyce/CLionProjects/ft_pipex/libft/ft_substr.c
  /Users/salyce/CLionProjects/ft_pipex/libft/libft.h
-CMakeFiles/ft_pipex.dir/pipex111.c.o
+CMakeFiles/ft_pipex.dir/pipex.c.o
+ /Users/salyce/CLionProjects/ft_pipex/gnl/get_next_line.h
+ /Users/salyce/CLionProjects/ft_pipex/libft/libft.h
+ /Users/salyce/CLionProjects/ft_pipex/pipex.c
+ /Users/salyce/CLionProjects/ft_pipex/pipex.h
+CMakeFiles/ft_pipex.dir/pipex_utils.c.o
  /Users/salyce/CLionProjects/ft_pipex/gnl/get_next_line.h
  /Users/salyce/CLionProjects/ft_pipex/libft/libft.h
  /Users/salyce/CLionProjects/ft_pipex/pipex.h
- /Users/salyce/CLionProjects/ft_pipex/pipex111.c
+ /Users/salyce/CLionProjects/ft_pipex/pipex_utils.c

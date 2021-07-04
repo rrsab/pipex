@@ -15,6 +15,13 @@ typedef struct s_arg
 {
 	int pp[2];
 	int flag;
+	int num_argc;
+	int	count;
 } t_arg;
+void	do_execve(char **envp, char **argv, int i, t_arg *fdp);
+void	ft_next_pipe(int i, t_arg *fdp);
+void	ft_parent_proc(int argc, char **argv, t_arg *fdp);
+void	ft_child_proc1(int i, char **argv, t_arg *fdp);
+void	ft_child_proc2(int i, char **argv, char **envp, t_arg *fdp);
 
 #endif

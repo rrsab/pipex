@@ -1,26 +1,5 @@
 #include "pipex.h"
 
-void	do_execve(char **envp, char **argv, int i, int count)
-{
-	char *path;
-	char **dv;
-	char **cmd1;
-	char *str;
-	int		j;
-	j = 0;
-	path = envp[count] + 5;
-	dv = ft_split(path, ':');
-	cmd1 = ft_split(argv[2 + i], ' ');
-	while (dv[j])
-	{
-		str = ft_strjoin3(dv[j], '/', cmd1[0]);
-		execve(str, cmd1, envp);
-		j++;
-		//doesn't free when is executed
-		free(str);
-	}
-}
-
 int find_path(char **envp, int argc)
 {
 	int	count;
@@ -40,29 +19,32 @@ int find_path(char **envp, int argc)
 	return (count);
 }
 
-int exec_process(int argc, char **argv, int count, char **envp, int num_argc, t_arg *fdp)
+void	ft_create_pipe(t_arg *fdp)
 {
-	int pid;
 	int	i;
-	int fd;
 
 	i = 0;
-
-	//creating pipes
-
-	while (i < num_argc - 1)
+	while (i < fdp->num_argc - 1)
 	{
 		if (pipe(fdp[i].pp) == -1)
 		{
 			perror("Error with creating pipe\n");
-			return (1);
+			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
-	i = 0;
+	//return (fdp);
+}
 
-	//creating process
-	while (i < num_argc - 1)
+int ft_exec_process(int argc, char **argv, char **envp, t_arg *fdp)
+{
+	int pid;
+	int	i;
+
+	i = 0;
+	//creating pipes
+	ft_create_pipe(fdp);
+	while (i < fdp->num_argc - 1)
 	{
 		pid = fork();
 		if (pid == -1)
@@ -72,65 +54,9 @@ int exec_process(int argc, char **argv, int count, char **envp, int num_argc, t_
 		}
 		if (pid == 0)
 		{
-			int	fd;
-			char *buf;
-			//child process
-			//first pipe
-			if (i == 0)
-			{
-				//limiter
-				if (fdp->flag == 1)
-				{
-					buf = "";
-					close(fdp[i].pp[0]);
-					while(ft_strncmp(buf, argv[2], ft_strlen(argv[2])))
-					{
-						if(get_next_line(0, &buf) && ft_strncmp(buf, argv[2],
-																ft_strlen(argv[2])))
-						{
-							write(fdp[i].pp[1], buf, ft_strlen(buf));
-							write(fdp[i].pp[1], "\n", 1);
-						}
-						free(buf);
-					}
-				}
-					//multiple pipes
-				else
-				{
-					fd = open(argv[1], O_RDONLY);
-					if (fd < 0)
-					{
-						perror(argv[1]);
-						exit(2);
-					}
-					if (dup2(fd, STDIN_FILENO) < 0)
-						perror("Couldn't read from the file");
-				}
-			}
-			//next pipes
-			if (i != 0)
-			{
-				close(fdp[i - 1].pp[1]);
-				if (dup2(fdp[i - 1].pp[0], STDIN_FILENO) < 0)
-					perror("Couldn't read from the pipe1");
-				close(fdp[i - 1].pp[0]);
-			}
-			if (dup2(fdp[i].pp[1], STDOUT_FILENO) < 0)
-				perror("Couldn't write to the pipe1");
-			close(fdp[i].pp[0]);
-			close(fdp[i].pp[1]);
-
-			//execute
-			if (fdp->flag == 1 && i > 0)
-			{
-				do_execve(envp, argv, i + 1, count);
-				perror("child");
-			}
-			else if (fdp->flag != 1)
-			{
-				do_execve(envp, argv, i, count);
-				perror("child");
-			}
+			ft_child_proc1(i, argv, fdp);
+			ft_next_pipe(i, fdp);				//next pipes
+			ft_child_proc2(i, argv, envp, fdp);
 			return (3);
 		}
 		else
@@ -142,39 +68,25 @@ int exec_process(int argc, char **argv, int count, char **envp, int num_argc, t_
 		}
 		i++;
 	}
-	//parent process
-	if (fdp->flag == 1)
-		fd = open(argv[argc - 1], O_WRONLY | O_CREAT | O_APPEND, 00774);
-	else
-		fd = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 00774);
-	if (fd < 0)
-	{
-		perror(argv[4]);
-		exit(2);
-	}
-	if (dup2(fd, STDOUT_FILENO) < 0)
-		perror("Couldn't read from the file");
-	if (dup2(fdp[num_argc - 2].pp[0], STDIN_FILENO) < 0)
-		perror("Couldn't read from the pipe2");
-	close(fdp[num_argc - 2].pp[1]);
-	close(fdp[num_argc - 2].pp[0]);
-	do_execve(envp, argv, i, count);
+	ft_parent_proc(argc, argv, fdp);	//parent process
+	do_execve(envp, argv, i, fdp);
 	perror("parent");
 	return (0);
 }
 
 int main(int argc, char **argv, char **envp)
 {
-	int		i;
-	int		count;
+	//int		i;
+	//int		count;
 	t_arg	*fdp;
-	int		num_argc;
+	//int		num_argc;
 
-	num_argc = argc - 3;
-	fdp =  (t_arg *)malloc(sizeof (t_arg) * argc);
-	i = 0;
-	count = find_path(envp, argc);
-	if (count == -1)
+	//num_argc = argc - 3;
+	fdp =  (t_arg *)malloc(sizeof (t_arg) * (argc - 3));
+	fdp->num_argc = argc - 3;
+	//i = 0;
+	fdp->count = find_path(envp, argc);
+	if (fdp->count == -1)
 		return (1);
 	if (argc < 5)
 	{
@@ -189,15 +101,14 @@ int main(int argc, char **argv, char **envp)
 			exit(EXIT_FAILURE);
 		}
 		fdp->flag = 1;
-		num_argc = argc - 4;
+		//fdp->num_argc = argc - 4;
 	}
-	if (exec_process(argc, argv, count, envp, num_argc, fdp))
+	if (ft_exec_process(argc, argv, envp, fdp))
 		return (2);
 	free(fdp);
 	//segfault ./a.out
 	//seeking in current directory
 	//initialize fds
 	//посмотри права доступа функцией access()
-
 }
 

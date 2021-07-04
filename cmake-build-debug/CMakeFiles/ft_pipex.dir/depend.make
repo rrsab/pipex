@@ -38,8 +38,13 @@ CMakeFiles/ft_pipex.dir/libft/ft_strncmp.c.o: ../libft/libft.h
 CMakeFiles/ft_pipex.dir/libft/ft_substr.c.o: ../libft/ft_substr.c
 CMakeFiles/ft_pipex.dir/libft/ft_substr.c.o: ../libft/libft.h
 
-CMakeFiles/ft_pipex.dir/pipex111.c.o: ../gnl/get_next_line.h
-CMakeFiles/ft_pipex.dir/pipex111.c.o: ../libft/libft.h
-CMakeFiles/ft_pipex.dir/pipex111.c.o: ../pipex.h
-CMakeFiles/ft_pipex.dir/pipex111.c.o: ../pipex111.c
+CMakeFiles/ft_pipex.dir/pipex.c.o: ../gnl/get_next_line.h
+CMakeFiles/ft_pipex.dir/pipex.c.o: ../libft/libft.h
+CMakeFiles/ft_pipex.dir/pipex.c.o: ../pipex.c
+CMakeFiles/ft_pipex.dir/pipex.c.o: ../pipex.h
+
+CMakeFiles/ft_pipex.dir/pipex_utils.c.o: ../gnl/get_next_line.h
+CMakeFiles/ft_pipex.dir/pipex_utils.c.o: ../libft/libft.h
+CMakeFiles/ft_pipex.dir/pipex_utils.c.o: ../pipex.h
+CMakeFiles/ft_pipex.dir/pipex_utils.c.o: ../pipex_utils.c
 

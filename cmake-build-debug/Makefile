@@ -493,6 +493,33 @@ pipex.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex.c.s
 .PHONY : pipex.c.s
 
+pipex_utils.o: pipex_utils.c.o
+
+.PHONY : pipex_utils.o
+
+# target to build an object file
+pipex_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex_utils.c.o
+.PHONY : pipex_utils.c.o
+
+pipex_utils.i: pipex_utils.c.i
+
+.PHONY : pipex_utils.i
+
+# target to preprocess a source file
+pipex_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex_utils.c.i
+.PHONY : pipex_utils.c.i
+
+pipex_utils.s: pipex_utils.c.s
+
+.PHONY : pipex_utils.s
+
+# target to generate assembly for a file
+pipex_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_pipex.dir/build.make CMakeFiles/ft_pipex.dir/pipex_utils.c.s
+.PHONY : pipex_utils.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -541,6 +568,9 @@ help:
 	@echo "... pipex.o"
 	@echo "... pipex.i"
 	@echo "... pipex.s"
+	@echo "... pipex_utils.o"
+	@echo "... pipex_utils.i"
+	@echo "... pipex_utils.s"
 .PHONY : help
 
 

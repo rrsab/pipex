@@ -1,6 +1,6 @@
 NAME	= pipex
 
-SRCS	= pipex.c gnl/get_next_line.c
+SRCS	= pipex.c pipex_utils.c gnl/get_next_line.c
 
 OBJS	= $(patsubst %.c, %.o, $(SRCS))
 
