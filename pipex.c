@@ -1,6 +1,6 @@
 #include "pipex.h"
 
-int find_path(char **envp, int argc)
+int	find_path(char **envp, int argc)
 {
 	int	count;
 
@@ -13,7 +13,7 @@ int find_path(char **envp, int argc)
 	while (envp[count])
 	{
 		if ((ft_strncmp("PATH=", envp[count], 5)) == 0)
-			break;
+			break ;
 		count++;
 	}
 	return (count);
@@ -33,58 +33,45 @@ void	ft_create_pipe(t_arg *fdp)
 		}
 		i++;
 	}
-	//return (fdp);
 }
 
-int ft_exec_process(int argc, char **argv, char **envp, t_arg *fdp)
+int	ft_exec_process(int argc, char **argv, char **envp, t_arg *fdp)
 {
-	int pid;
-	int	i;
+	//int	pid;
 
-	i = 0;
-	//creating pipes
+	fdp->i = -1;
 	ft_create_pipe(fdp);
-	while (i < fdp->num_argc - 1)
-	{
-		pid = fork();
-		if (pid == -1)
-		{
-			perror("Error with creating process\n");
-			return (2);
-		}
-		if (pid == 0)
-		{
-			ft_child_proc1(i, argv, fdp);
-			ft_next_pipe(i, fdp);				//next pipes
-			ft_child_proc2(i, argv, envp, fdp);
-			return (3);
-		}
-		else
-		{
-			wait(0);
-			close((fdp[i].pp[1]));
-			if (i)
-				close(fdp[i - 1].pp[0]);
-		}
-		i++;
-	}
-	ft_parent_proc(argc, argv, fdp);	//parent process
-	do_execve(envp, argv, i, fdp);
-	perror("parent");
+	ft_child_proc(envp, argv, fdp);
+//	while (++fdp->i < fdp->num_argc - 1)
+//	{
+//		if ((pid = fork()) == -1)
+//		{
+//			perror("Error with creating process\n");
+//			return (2);
+//		}
+//		if (pid == 0)
+//		{
+//			ft_child_proc2(argv, envp, fdp);
+//			return (3);
+//		}
+//		else
+//		{
+//			wait(0);
+//			close((fdp[fdp->i].pp[1]));
+//			if (fdp->i)
+//				close(fdp[fdp->i - 1].pp[0]);
+//		}
+//	}
+	ft_parent_proc(envp, argc, argv, fdp);
 	return (0);
 }
 
-int main(int argc, char **argv, char **envp)
+int	main(int argc, char **argv, char **envp)
 {
-	//int		i;
-	//int		count;
 	t_arg	*fdp;
-	//int		num_argc;
 
-	//num_argc = argc - 3;
-	fdp =  (t_arg *)malloc(sizeof (t_arg) * (argc - 3));
+	fdp = (t_arg *)malloc(sizeof(t_arg) * (argc - 3));
 	fdp->num_argc = argc - 3;
-	//i = 0;
 	fdp->count = find_path(envp, argc);
 	if (fdp->count == -1)
 		return (1);
@@ -101,7 +88,6 @@ int main(int argc, char **argv, char **envp)
 			exit(EXIT_FAILURE);
 		}
 		fdp->flag = 1;
-		//fdp->num_argc = argc - 4;
 	}
 	if (ft_exec_process(argc, argv, envp, fdp))
 		return (2);

@@ -1,5 +1,5 @@
-#ifndef FT_PIPEX_PIPEX_H
-#define FT_PIPEX_PIPEX_H
+#ifndef PIPEX_H
+# define PIPEX_H
 
 # include <unistd.h>
 # include <stdio.h>
@@ -13,15 +13,18 @@
 
 typedef struct s_arg
 {
-	int pp[2];
-	int flag;
-	int num_argc;
+	int	pp[2];
+	int	flag;
+	int	num_argc;
 	int	count;
-} t_arg;
+	int	i;
+}	t_arg;
 void	do_execve(char **envp, char **argv, int i, t_arg *fdp);
-void	ft_next_pipe(int i, t_arg *fdp);
-void	ft_parent_proc(int argc, char **argv, t_arg *fdp);
-void	ft_child_proc1(int i, char **argv, t_arg *fdp);
-void	ft_child_proc2(int i, char **argv, char **envp, t_arg *fdp);
+void	ft_next_pipe(t_arg *fdp);
+void	ft_parent_proc(char **envp, int argc, char **argv, t_arg *fdp);
+void	ft_child_proc1(char **argv, t_arg *fdp);
+void	ft_child_proc2(char **argv, char **envp, t_arg *fdp);
+int 	ft_child_proc(char **envp, char **argv, t_arg *fdp);
+int		ft_strncmp_buf(const char *s1, const char *s2);
 
 #endif
