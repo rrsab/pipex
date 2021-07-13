@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_pipex.dir/libft/ft_substr.c.o"
   "CMakeFiles/ft_pipex.dir/pipex.c.o"
   "CMakeFiles/ft_pipex.dir/pipex_utils.c.o"
+  "CMakeFiles/ft_pipex.dir/pipex_utils1.c.o"
   "ft_pipex"
   "ft_pipex.pdb"
 )

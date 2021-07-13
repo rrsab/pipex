@@ -126,6 +126,9 @@
 		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex_utils.c">
 			<Option target="ft_pipex"/>
 		</Unit>
+		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/pipex_utils1.c">
+			<Option target="ft_pipex"/>
+		</Unit>
 		<Unit filename="/Users/salyce/CLionProjects/ft_pipex/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

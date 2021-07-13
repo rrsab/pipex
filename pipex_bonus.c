@@ -1,117 +1,71 @@
-
 #include "pipex.h"
 
-int	main(int argc, char **argv, char **envp)
+void	ft_create_pipe(t_arg *fdp)
 {
-	int		i;
-	int		j;
-	int		infile;
-	int		count;
-	int		num_argc;
-	char	*path;
-	char	**dv;
-	char	**cmd1;
-
-	count = 0;
-	num_argc = argc - 3;		//	number of process
-	int	pid[num_argc + 1];		//	number of children plus 1 parent
-	if (argc < 5)
-	{
-		perror("Not enough arguments!\n");
-		return (1);
-	}
-	printf("hello!");
-	while (envp[count])
-	{
-		if ((ft_strncmp("PATH=", envp[count], 5)) == 0)
-			break;
-		count++;
-	}
-	//	creating pipes
-	int	fdp[num_argc][2];
+	int	i;
 
 	i = 0;
-	while (i < num_argc - 1)
+	while (i < fdp->num_argc - 1)
 	{
-		if (pipe(fdp[i]) == -1)
-		{
-			perror("Error with creating pipe!\n");
-			return (2);
-		}
-		++i;
+		if (pipe(fdp[i].pp) == -1)
+			ft_perror("Error with creating pipe\n");
+		i++;
 	}
-	i = 0;
-	//	creating process
-	while (i < num_argc - 1)
+}
+
+int	ft_child_proc(char **envp, char **argv, t_arg *fdp)
+{
+	int	pid;
+
+	while (++fdp->i < fdp->num_argc - 1)
 	{
-		pid[i] = fork();
-		if (pid[i] == -1)
+		pid = fork();
+		if (pid == -1)
+			ft_perror("Error with creating process\n");
+		if (pid == 0)
 		{
-			perror("Error with creating process!\n");
+			ft_child_proc2(argv, envp, fdp);
 			return (3);
-		}
-		if (pid[i] == 0)
-		{
-			if (i == 0)
-			{
-				infile = open(argv[1], O_RDONLY);
-				if (infile < 0)
-				{
-					perror(argv[1]);
-					exit(2);
-				}
-				if (dup2(infile, STDIN_FILENO) < 0)
-					perror("Couldn't read from the file!\n");
-			}
-			if (i != 0)
-			{
-				close(fdp[i - 1][1]);
-				if (dup2(fdp[i - 1][0], STDIN_FILENO) < 0)
-					perror("Couldn't read from the pipe!\n");
-				close(fdp[i - 1][0]);
-			}
-			if (dup2(fdp[i][1], STDOUT_FILENO) < 0)
-				perror("Could't write to the pipe!\n");
-			close(fdp[i][0]);
-			close(fdp[i][1]);
-			path = envp[count] + 5;
-			dv = ft_split(path, ':');
-			cmd1 = ft_split(argv[2 + i], ' ');
-			j = 0;
-			char	*str;
-			while (dv[j])
-			{
-				str = ft_strjoin(dv[j], "/");
-				str = ft_strjoin(str, cmd1[0]);
-				execve(str, cmd1, envp);
-				++j;
-			}
-			perror("child");
-			return (0);
 		}
 		else
 		{
 			wait(NULL);
-			close(fdp[i][1]);
+			close((fdp[fdp->i].pp[1]));
+			if (fdp->i)
+				close(fdp[fdp->i - 1].pp[0]);
 		}
-		i++;
 	}
-	int fd = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0774);
-	dup2(fd, STDOUT_FILENO);
-	dup2(fdp[num_argc - 2][0], STDIN_FILENO);
-	close(fdp[num_argc - 2][1]);
-	close(fdp[num_argc - 2][0]);
-	path = envp[count] + 5;
-	dv = ft_split(path, ':');
-	cmd1 = ft_split(argv[2 + i], ' ');
-	j = 0;
-	char	*str;
-	while (dv[j])
+	return (0);
+}
+
+void	ft_exec_process(int argc, char **argv, char **envp, t_arg *fdp)
+{
+	fdp->i = -1;
+	ft_create_pipe(fdp);
+	ft_child_proc(envp, argv, fdp);
+	ft_parent_proc(envp, argc, argv, fdp);
+}
+
+int	main(int argc, char **argv, char **envp)
+{
+	t_arg	*fdp;
+
+	if (argc < 5)
+		ft_perror("Not enough arguments");
+	fdp = (t_arg *)malloc(sizeof(t_arg) * (argc - 3));
+	if (!fdp)
+		ft_perror("Couldn't to allocate memory");
+	fdp->num_argc = argc - 3;
+	fdp->count = find_path(envp);
+	if (fdp->count == -1)
+		ft_perror("Could not define variable PATH in environment");
+	if (!ft_strncmp_buf(argv[1], "here_doc"))
 	{
-		str = ft_strjoin(dv[j], "/");
-		str = ft_strjoin(str, cmd1[0]);
-		execve(str, cmd1, envp);
-		++j;
+		if (argc < 6)
+			ft_perror("Not enough arguments");
+		fdp->flag = 1;
 	}
-	perror("parent");
+	ft_exec_process(argc, argv, envp, fdp);
+	free(fdp);
+	exit(EXIT_SUCCESS);
 }

@@ -18,6 +18,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/salyce/CLionProjects/ft_pipex/libft/ft_substr.c" "/Users/salyce/CLionProjects/ft_pipex/cmake-build-debug/CMakeFiles/ft_pipex.dir/libft/ft_substr.c.o"
   "/Users/salyce/CLionProjects/ft_pipex/pipex.c" "/Users/salyce/CLionProjects/ft_pipex/cmake-build-debug/CMakeFiles/ft_pipex.dir/pipex.c.o"
   "/Users/salyce/CLionProjects/ft_pipex/pipex_utils.c" "/Users/salyce/CLionProjects/ft_pipex/cmake-build-debug/CMakeFiles/ft_pipex.dir/pipex_utils.c.o"
+  "/Users/salyce/CLionProjects/ft_pipex/pipex_utils1.c" "/Users/salyce/CLionProjects/ft_pipex/cmake-build-debug/CMakeFiles/ft_pipex.dir/pipex_utils1.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
